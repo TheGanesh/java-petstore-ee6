@@ -25,7 +25,7 @@ graph TB
     end
     
     subgraph "REST API Layer (JAX-RS 1.1)"
-        CRS[CatalogRestService<br/>@Path"/catalog"]
+        CRS[CatalogRestService<br/>@Path /catalog]
     end
     
     subgraph "Service Layer (@Stateless EJB 3.1)"
@@ -150,8 +150,8 @@ sequenceDiagram
     CS->>EM: createNamedQuery(FIND_BY_CATEGORY_NAME)
     EM->>DB: SELECT p FROM Product p WHERE p.category.name = :pname
     DB-->>EM: List of Products
-    EM-->>CS: List&lt;Product&gt;
-    CS-->>CC: List&lt;Product&gt;
+    EM-->>CS: List of Product
+    CS-->>CC: List of Product
     CC-->>User: showproducts.faces
     
     User->>CC: doFindItems(productId)
@@ -164,8 +164,8 @@ sequenceDiagram
     CS->>EM: createNamedQuery(FIND_BY_PRODUCT_ID)
     EM->>DB: SELECT i FROM Item i WHERE i.product.id = :productId
     DB-->>EM: List of Items
-    EM-->>CS: List&lt;Item&gt;
-    CS-->>CC: List&lt;Item&gt;
+    EM-->>CS: List of Item
+    CS-->>CC: List of Item
     CC-->>User: showitems.faces
     
     User->>CC: doFindItem(itemId)
@@ -1182,8 +1182,8 @@ Service for managing orders and order processing.
 ### Build the Application
 
 ```bash
-# Clone the repository
-git clone https://github.com/TheGanesh/java-petstore-ee6.git
+# Clone the repository (example using current fork)
+git clone <repository-url>
 cd java-petstore-ee6
 
 # Build with Maven
